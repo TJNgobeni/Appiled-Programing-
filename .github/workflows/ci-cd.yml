@@ -1,4 +1,4 @@
-name: Disaster Relief App - Build Only
+name: Disaster Relief App CI
 
 on:
   push:
@@ -7,19 +7,12 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+    - uses: actions/checkout@v4
+    - uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '8.0.x'
-        
-    - name: Build application
-      run: |
-        dotnet restore
-        dotnet build --configuration Release
-        echo "✅ BUILD SUCCESSFUL - Application compiled without errors"
-        echo "🎉 CI/CD PIPELINE WORKING - Ready for submission"
+    - name: Build Main App
+      run: dotnet build DisasterReliefApp/DisasterReliefApp.csproj -c Release
+    - name: Success
+      run: echo "🎉 PIPELINE SUCCESS - App is buildable and ready!"

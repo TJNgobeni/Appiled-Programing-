@@ -1,0 +1,56 @@
+@model DisasterReliefApp.Models.Donation
+
+@{    ViewData["Title"] = "Donate Resources";}
+
+<h1>Donate Resources</h1>
+
+<form asp-controller="ResourceDonation" asp-action="DonateResources">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="ResourceType" class="control-label">Resource Type</label>
+        <select asp-for="ResourceType" class="form-control">
+            <option value="Food">Food</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Medical Supplies">Medical Supplies</option>
+            <option value="Other">Other</option>
+        </select>
+        <span asp-validation-for="ResourceType" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Quantity" class="control-label">Quantity</label>
+        <input asp-for="Quantity" class="form-control" />
+        <span asp-validation-for="Quantity" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Condition" class="control-label">Condition</label>
+        <textarea asp-for="Condition" class="form-control"></textarea>
+        <span asp-validation-for="Condition" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ExpirationDate" class="control-label">Expiration Date</label>
+        <input asp-for="ExpirationDate" type="date" class="form-control" />
+        <span asp-validation-for="ExpirationDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Notes" class="control-label">Notes</label>
+        <textarea asp-for="Notes" class="form-control"></textarea>
+        <span asp-validation-for="Notes" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Donate" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

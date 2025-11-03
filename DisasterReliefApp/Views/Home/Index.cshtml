@@ -1,0 +1,55 @@
+﻿@model IEnumerable<DisasterReliefApp.Models.IncidentReport>
+@{
+    ViewData["Title"] = "Home - Disaster Relief App";
+}
+
+<h1>Welcome to Disaster Relief App</h1>
+
+<p>
+    This portal allows you to report disasters, view incident reports, and manage resources effectively.
+</p>
+
+<div class="mb-3">
+    <a asp-action="CreateIncidentReport" class="btn btn-success">Create New Incident Report</a>
+</div>
+
+<h2>Recent Incident Reports</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Reported By</th>
+            <th>Incident Type</th>
+            <th>Location</th>
+            <th>Date Occurred</th>
+            <th>Severity</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var incident in Model)
+            {
+                <tr>
+                    <td>@incident.ReportedBy</td>
+                    <td>@incident.IncidentType</td>
+                    <td>@incident.Location</td>
+                    <td>@incident.DateOccurred.ToString("g")</td>
+                    <td>@incident.Severity</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@incident.Id" class="btn btn-info btn-sm">Details</a>
+                        <a asp-action="Edit" asp-route-id="@incident.Id" class="btn btn-warning btn-sm">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@incident.Id" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6">No incident reports found.</td>
+            </tr>
+        }
+    </tbody>
+</table>

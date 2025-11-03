@@ -1,0 +1,29 @@
+@model IEnumerable<DisasterReliefApp.Models.Donation>
+
+@{    ViewData["Title"] = "Donation History";}
+
+<h1>Donation History</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Resource Type</th>
+            <th>Quantity</th>
+            <th>Condition</th>
+            <th>Expiration Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ResourceType</td>
+                <td>@item.Quantity</td>
+                <td>@item.Condition</td>
+                <td>@item.ExpirationDate</td>
+                <td>@item.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>

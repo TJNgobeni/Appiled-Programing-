@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DisasterReliefApp", "DisasterReliefApp\DisasterReliefApp.csproj", "{61574F3F-6E05-469D-A099-D09325B17E85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B4D2CED9-9D7C-42DC-A74B-87868FC8EDF5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DisasterRelief.UnitTests", "Tests\DisasterRelief.UnitTests\DisasterRelief.UnitTests.csproj", "{7BE52742-BC9D-4C1D-9150-06A30DC1AB84}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DisasterRelief.IntegrationTests", "Tests\DisasterRelief.IntegrationTests\DisasterRelief.IntegrationTests.csproj", "{F189E5B5-6B43-4883-B190-D7827CED4F3A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DisasterRelief.UITests", "Tests\DisasterRelief.UITests\DisasterRelief.UITests.csproj", "{E9706CFC-BB11-4405-9573-361C9D876443}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoadTests", "LoadTests", "{AA70191A-F0D6-46AC-9240-58E317929715}"
+	ProjectSection(SolutionItems) = preProject
+		disaster-relief-load-test.jmx = disaster-relief-load-test.jmx
+		run-load-test.bat = run-load-test.bat
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61574F3F-6E05-469D-A099-D09325B17E85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61574F3F-6E05-469D-A099-D09325B17E85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61574F3F-6E05-469D-A099-D09325B17E85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61574F3F-6E05-469D-A099-D09325B17E85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BE52742-BC9D-4C1D-9150-06A30DC1AB84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BE52742-BC9D-4C1D-9150-06A30DC1AB84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BE52742-BC9D-4C1D-9150-06A30DC1AB84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BE52742-BC9D-4C1D-9150-06A30DC1AB84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F189E5B5-6B43-4883-B190-D7827CED4F3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F189E5B5-6B43-4883-B190-D7827CED4F3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F189E5B5-6B43-4883-B190-D7827CED4F3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F189E5B5-6B43-4883-B190-D7827CED4F3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9706CFC-BB11-4405-9573-361C9D876443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9706CFC-BB11-4405-9573-361C9D876443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9706CFC-BB11-4405-9573-361C9D876443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9706CFC-BB11-4405-9573-361C9D876443}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7BE52742-BC9D-4C1D-9150-06A30DC1AB84} = {B4D2CED9-9D7C-42DC-A74B-87868FC8EDF5}
+		{F189E5B5-6B43-4883-B190-D7827CED4F3A} = {B4D2CED9-9D7C-42DC-A74B-87868FC8EDF5}
+		{E9706CFC-BB11-4405-9573-361C9D876443} = {B4D2CED9-9D7C-42DC-A74B-87868FC8EDF5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9F19479A-97FA-4435-AA60-3F99D3FF9F38}
+	EndGlobalSection
+EndGlobal

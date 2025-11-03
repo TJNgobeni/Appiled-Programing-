@@ -1,0 +1,31 @@
+@model IEnumerable<DisasterReliefApp.Models.Task>
+
+@{    ViewData["Title"] = "Available Tasks";}
+
+<h1>Available Tasks</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Task Name</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Required Skills</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.TaskName</td>
+                <td>@item.Description</td>
+                <td>@item.Location</td>
+                <td>@item.RequiredSkills</td>
+            <td>
+                <a asp-action="SignUp" asp-route-id="@item.TaskId">Sign Up</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

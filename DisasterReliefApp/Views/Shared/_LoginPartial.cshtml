@@ -1,0 +1,22 @@
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.Identity.Web
+@using Microsoft.Identity.Web.UI
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+
+<ul class="navbar-nav">
+@if (User.Identity?.IsAuthenticated == true)
+{
+        <li class="nav-item">
+            <span class="nav-link text-dark">Hello @User.Identity?.Name!</span>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut" asp-route-id="/">Sign out</a>
+        </li>
+}
+else
+{
+    <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn" asp-route-id="/">Sign in</a>
+        </li>
+}
+</ul>

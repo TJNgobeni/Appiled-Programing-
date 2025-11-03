@@ -1,0 +1,41 @@
+name: Build and Test Disaster Relief App
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0.x'
+        
+    - name: Restore dependencies
+      run: dotnet restore
+      
+    - name: Build application
+      run: dotnet build --configuration Release --no-restore
+      
+    - name: Run Unit Tests
+      run: dotnet test Tests/DisasterRelief.UnitTests/ --configuration Release --verbosity normal
+      
+    - name: Run Integration Tests
+      run: dotnet test Tests/DisasterRelief.IntegrationTests/ --configuration Release --verbosity normal
+      
+    - name: Run UI Tests
+      run: dotnet test Tests/DisasterRelief.UITests/ --configuration Release --verbosity normal
+      
+    - name: Test Completed
+      run: |
+        echo "🎉 ALL TESTS PASSED!"
+        echo "✅ Build Successful"
+        echo "✅ Automated Pipeline Working"

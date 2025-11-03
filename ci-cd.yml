@@ -1,0 +1,50 @@
+name: Build, Test and Deploy
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  DOTNET_VERSION: '8.0.x'
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+        
+    - name: Restore dependencies
+      run: dotnet restore
+      
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+      
+    - name: Run Unit Tests
+      run: dotnet test Tests/DisasterRelief.UnitTests/ --configuration Release --logger "console;verbosity=detailed"
+      
+    - name: Run Integration Tests  
+      run: dotnet test Tests/DisasterRelief.IntegrationTests/ --configuration Release --logger "console;verbosity=detailed"
+      
+    - name: Run UI Tests
+      run: dotnet test Tests/DisasterRelief.UITests/ --configuration Release --logger "console;verbosity=detailed"
+      
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: **/TestResults/**/*
+        
+    - name: Display completion message
+      run: |
+        echo "✅ BUILD COMPLETED SUCCESSFULLY"
+        echo "✅ ALL TESTS PASSED"
+        echo "✅ CI/CD PIPELINE WORKING"
